@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-md-12">
+        {{#if data.errorMessage}}
+        <div class="alert alert-danger"> <strong>Error:</strong> {{data.errorMessage}} </div>
+        {{/if}}
+
+        {{#unless data.successMessage}}
+        <h2>Register</h2>
+        <hr />
+        <form method="post" action="/register">
+
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input class="form-control" id="userName" name="userName" type="text"
+                                placeholder="User Name" required {{#if data.userName}} value="{{data.userName}}"
+                                {{/if}} />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input class="form-control" id="password" name="password" type="password"
+                                placeholder="Password" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input class="form-control" id="password2" name="password2" type="password"
+                                placeholder="Confirm Password" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input class="form-control" id="email" name="email" type="email" placeholder="Email Address"
+                                required />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <input type="submit" class="btn btn-success pull-right" value="Register" /><br /><br /><br />
+            {{!-- <button class="btn btn-success pull-right" type="submit">Login</button><br /><br /><br /> --}}
+
+        </form>
+        {{/unless}}
+        {{#if data.successMessage}}
+        <div class="alert alert-success"> <strong>Success:</strong> {{data.successMessage}}</div><a
+            class="btn btn-success pull-right" href="/login">&nbsp;&nbsp;&nbsp;Proceed to Log
+            in&nbsp;&nbsp;&nbsp;</a><br /><br /><br />
+        {{/if}}
+
+
+    </div>
+</div>
